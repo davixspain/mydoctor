@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset="0.5" stop-color="#f97316"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.06" stroke="#94a3b8" stroke-width="1">
+    <path d="M0 80 H1280 M0 160 H1280 M0 240 H1280 M0 320 H1280 M0 400 H1280 M0 480 H1280 M0 560 H1280"/>
+    <path d="M80 0 V640 M160 0 V640 M240 0 V640 M320 0 V640 M400 0 V640 M480 0 V640 M560 0 V640 M640 0 V640 M720 0 V640 M800 0 V640 M880 0 V640 M960 0 V640 M1040 0 V640 M1120 0 V640 M1200 0 V640"/>
+  </g>
+
+  <!-- Stethoscope icon left -->
+  <g transform="translate(110,210)" filter="url(#glow)">
+    <circle cx="80" cy="80" r="78" fill="none" stroke="#f97316" stroke-width="6" opacity="0.85"/>
+    <path d="M40 50 v40 a40 40 0 0 0 80 0 v-40" fill="none" stroke="#fbbf24" stroke-width="9" stroke-linecap="round"/>
+    <path d="M40 50 l-8 -10 M120 50 l8 -10" stroke="#fbbf24" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="80" cy="135" r="14" fill="none" stroke="#ef4444" stroke-width="6"/>
+    <path d="M80 121 v-31" stroke="#fbbf24" stroke-width="9" stroke-linecap="round"/>
+  </g>
+
+  <!-- Title -->
+  <text x="320" y="245" font-size="120" font-weight="800" fill="url(#title)" letter-spacing="-3">MyDoctor</text>
+
+  <!-- Tagline -->
+  <text x="320" y="310" font-size="34" font-weight="500" fill="#e2e8f0">
+    Open-source personal AI doctor
+  </text>
+  <text x="320" y="358" font-size="24" font-weight="400" fill="#94a3b8">
+    Local-first · Privacy-respecting · Italian-first
+  </text>
+
+  <!-- Stack chips -->
+  <g font-size="20" font-weight="600">
+    <g transform="translate(320,420)">
+      <rect width="180" height="50" rx="25" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+      <text x="90" y="32" text-anchor="middle" fill="#7dd3fc">Telegram bot</text>
+    </g>
+    <g transform="translate(514,420)">
+      <rect width="195" height="50" rx="25" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+      <text x="97.5" y="32" text-anchor="middle" fill="#fbbf24">Claude Code skill</text>
+    </g>
+    <g transform="translate(723,420)">
+      <rect width="180" height="50" rx="25" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+      <text x="90" y="32" text-anchor="middle" fill="#a78bfa">Obsidian vault</text>
+    </g>
+    <g transform="translate(917,420)">
+      <rect width="240" height="50" rx="25" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+      <text x="120" y="32" text-anchor="middle" fill="#86efac">Cross-platform installer</text>
+    </g>
+  </g>
+
+  <!-- Bottom line -->
+  <text x="320" y="540" font-size="22" font-weight="400" fill="#64748b">
+    Capture every health event · Spot patterns over months · Ready before every doctor visit
+  </text>
+
+  <!-- URL bottom right -->
+  <text x="1170" y="600" font-size="20" font-weight="600" fill="#475569" text-anchor="end">
+    github.com/davixspain/mydoctor
+  </text>
+</svg>

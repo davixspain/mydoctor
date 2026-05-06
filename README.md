@@ -1,3 +1,7 @@
+<p align="center">
+  <img src=".github/banner.svg" alt="MyDoctor — Open-source personal AI doctor" width="100%">
+</p>
+
 # 🩺 MyDoctor
 
 > **Open-source personal AI doctor** — local-first, privacy-respecting, runs on your machine.
@@ -46,22 +50,49 @@ be useful for you too.
 
 ## How it works (60 seconds)
 
+```mermaid
+flowchart TB
+    User([👤 You])
+    TG[📱 Telegram client<br/>iOS · Android · Web · Desktop]
+    Bot[🤖 bot.py<br/>Python long-poll]
+    Claude[🧠 Claude Code CLI<br/>+ mydoctor skill]
+    Vault[(🗂️ Obsidian Vault<br/>~/MyDoctor/vault/)]
+    Sched[⏰ systemd · launchd · Task Scheduler<br/>Sun 20:00 weekly · 1st 20:00 monthly]
+    Obs[📓 Obsidian app]
+
+    User -->|photo · text · voice · PDF| TG
+    TG -->|webhook| Bot
+    Bot -->|subprocess --resume sid| Claude
+    Claude -->|Read · Write · Edit| Vault
+    Claude -->|response| Bot
+    Bot -->|reply| TG
+    TG -->|message| User
+    Sched -.->|triggers| Bot
+    Bot -.->|push only if relevant| TG
+    Vault <-->|manual edit| Obs
+
+    classDef user fill:#fef3c7,stroke:#f59e0b,color:#000
+    classDef external fill:#dbeafe,stroke:#3b82f6,color:#000
+    classDef storage fill:#dcfce7,stroke:#16a34a,color:#000
+    classDef sched fill:#fce7f3,stroke:#ec4899,color:#000
+    class User user
+    class TG,Claude external
+    class Vault,Obs storage
+    class Sched sched
 ```
-Telegram (any client, any device)
-        ↓
-   bot.py listening on your machine
-        ↓ subprocess
-   Claude Code CLI with `mydoctor` skill
-        ↓ Read/Write/Edit tools
-   Obsidian vault on your local filesystem
-   ├── Visits/        per-encounter notes
-   ├── Labs/          lab session reports
-   ├── Conditions/    active clinical stories
-   ├── Differentials/ working hypotheses with evidence pro/contra
-   ├── Symptom diary/ daily notes with photo embeds
-   ├── Medications/   active drugs + allergies
-   ├── Doctors/       who's who across encounters
-   └── Attachments/<date>/  raw photos and PDFs
+
+Vault structure on your filesystem:
+
+```
+~/MyDoctor/vault/
+├── Visits/        per-encounter notes
+├── Labs/          lab session reports
+├── Conditions/    active clinical stories
+├── Differentials/ working hypotheses with evidence pro/contra
+├── Symptom diary/ daily notes with photo embeds
+├── Medications/   active drugs + allergies
+├── Doctors/       who's who across encounters
+└── Attachments/<date>/  raw photos and PDFs
 ```
 
 Three feedback loops:
