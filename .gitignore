@@ -1,0 +1,54 @@
+# Sensitive
+.env
+.env.local
+.session_id
+.onboarding
+*.session
+
+# User data — never package or commit
+vault/
+inbox/
+logs/
+attachments/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+.directory
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+*.zip
+*.tar.gz
+
+# Obsidian workspace files (keep config but ignore per-user state)
+.obsidian/workspace*
+.obsidian/cache/
+
+# Logs and audit
+*.log
+review-*.log

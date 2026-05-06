@@ -1,0 +1,12 @@
+# MyDoctor — required Python dependencies
+# Install: ./venv/bin/pip install -r requirements.txt
+
+# Telegram bot framework
+python-telegram-bot[ext]>=22,<23
+
+# .env loader
+python-dotenv>=1.0
+
+# --- Optional: voice transcription (uncomment if you want vocali support) ---
+# faster-whisper>=1.0   # ~150 MB models, requires ffmpeg
+# ctranslate2>=4.0      # backend (auto-installed by faster-whisper)
