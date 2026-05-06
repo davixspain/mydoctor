@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MyDoctor — Open-source personal AI doctor. Local-first, privacy-respecting. Telegram bot + Obsidian vault + Claude Code skill, cross-platform installer.">
+<meta name="keywords" content="AI doctor, personal health, Obsidian, Telegram bot, Claude, local-first, privacy, italian, medical records, open source">
+<meta name="author" content="Davide Bettinetti">
+<meta property="og:title" content="MyDoctor — Open-source personal AI doctor">
+<meta property="og:description" content="Catalog every health event. Spot patterns over months. Ready for every doctor visit. 100% local, your data never leaves your computer.">
+<meta property="og:image" content="https://raw.githubusercontent.com/davixspain/mydoctor/main/.github/banner.svg">
+<meta property="og:url" content="https://davixspain.github.io/mydoctor">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MyDoctor — Open-source personal AI doctor">
+<meta name="twitter:description" content="Local-first · Privacy-respecting · Italian-first. Telegram bot + Obsidian vault + Claude Code.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/davixspain/mydoctor/main/.github/banner.svg">
+<title>MyDoctor — Open-source personal AI doctor</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Menlo', 'Monaco', 'monospace'],
+      },
+      colors: {
+        bg: '#0f172a',
+        bg2: '#1e293b',
+        accent: '#f97316',
+        accent2: '#fbbf24',
+      }
+    }
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #e2e8f0; }
+  .gradient-text { background: linear-gradient(90deg, #fbbf24, #f97316, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(148,163,184,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148,163,184,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .pulse-dot::before {
+    content: ''; display: inline-block; width: 8px; height: 8px;
+    background: #22c55e; border-radius: 50%; margin-right: 8px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+  .feature-card {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(71, 85, 105, 0.5);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  .feature-card:hover {
+    border-color: rgba(249, 115, 22, 0.5);
+    transform: translateY(-4px);
+  }
+  .code-block {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(71, 85, 105, 0.4);
+  }
+</style>
+</head>
+<body class="font-sans antialiased grid-bg min-h-screen">
+
+<!-- Nav -->
+<nav class="sticky top-0 z-50 backdrop-blur-md bg-bg/80 border-b border-slate-800">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <span class="text-3xl">🩺</span>
+      <span class="text-xl font-bold gradient-text">MyDoctor</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#features" class="hover:text-accent2 transition">Features</a>
+      <a href="#how-it-works" class="hover:text-accent2 transition">How it works</a>
+      <a href="#install" class="hover:text-accent2 transition">Install</a>
+      <a href="https://github.com/davixspain/mydoctor" class="hover:text-accent2 transition">GitHub →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="max-w-6xl mx-auto px-6 pt-20 pb-24 text-center">
+  <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/60 border border-slate-700 text-sm font-medium text-slate-300 mb-8">
+    <span class="pulse-dot">v1.0 — open-source release</span>
+  </div>
+  <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+    Your personal AI doctor,<br/>
+    <span class="gradient-text">on your machine.</span>
+  </h1>
+  <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-4 leading-relaxed">
+    Catalog every health event you throw at it. Spot patterns over months
+    you'd never see alone. Walk into every doctor visit prepared.
+  </p>
+  <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-12">
+    Telegram bot + Obsidian vault + Claude Code skill. Cross-platform installer.
+    Local-first. Privacy-respecting. <strong class="text-slate-300">No cloud.</strong>
+  </p>
+  <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+    <a href="https://github.com/davixspain/mydoctor"
+       class="px-8 py-4 rounded-xl bg-gradient-to-r from-accent to-red-500 text-white font-semibold hover:shadow-lg hover:shadow-accent/30 transition">
+      ⭐ Star on GitHub
+    </a>
+    <a href="https://github.com/davixspain/mydoctor#quick-start"
+       class="px-8 py-4 rounded-xl bg-slate-800 border border-slate-700 text-white font-semibold hover:border-accent transition">
+      📦 Quick start →
+    </a>
+  </div>
+  <p class="text-sm text-slate-500 mt-8">
+    PolyForm Noncommercial 1.0.0 · Linux · macOS · Windows
+  </p>
+</section>
+
+<!-- Banner image -->
+<section class="max-w-5xl mx-auto px-6 -mt-8 mb-24">
+  <div class="rounded-2xl overflow-hidden shadow-2xl shadow-accent/10 border border-slate-800">
+    <img src="https://raw.githubusercontent.com/davixspain/mydoctor/main/.github/banner.svg"
+         alt="MyDoctor banner" class="w-full" />
+  </div>
+</section>
+
+<!-- Why -->
+<section class="max-w-4xl mx-auto px-6 py-24">
+  <h2 class="text-4xl font-bold mb-8 text-center">Why does this exist?</h2>
+  <div class="space-y-6 text-lg text-slate-300 leading-relaxed">
+    <p>I was dealing with a stubborn GI case: a melena episode, EGDS, colonoscopy,
+       multiple lab batches, allergic reactions with hard-to-pin-down triggers,
+       months of evolving symptoms across two hospitals and three doctors.</p>
+    <p class="text-slate-400">
+      WhatsApp had my photos. My head had the timeline. Obsidian had my notes.
+      Notion had my random observations. <strong class="text-white">None of them
+      talked to each other.</strong> Every time I went to the GP I had to
+      reconstruct the case from memory.
+    </p>
+    <p>So I built MyDoctor for myself. <strong class="text-white">It worked.</strong>
+       I cleaned it up, anonymized the defaults, and released it under
+       PolyForm Noncommercial.</p>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="text-4xl font-bold mb-4 text-center">What it actually does</h2>
+  <p class="text-slate-400 text-center mb-16 max-w-2xl mx-auto">
+    Six things, all local, all yours.
+  </p>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <div class="feature-card rounded-xl p-6">
+      <div class="text-4xl mb-3">📥</div>
+      <h3 class="text-xl font-bold mb-2 text-white">Universal ingestion</h3>
+      <p class="text-slate-400 text-sm leading-relaxed">
+        Photos of lab reports, voice memos, PDFs from specialists, free-form
+        text. Send anything to your private Telegram bot. It catalogs.
+      </p>
+    </div>
+
+    <div class="feature-card rounded-xl p-6">
+      <div class="text-4xl mb-3">🗂️</div>
+      <h3 class="text-xl font-bold mb-2 text-white">Longitudinal vault</h3>
+      <p class="text-slate-400 text-sm leading-relaxed">
+        Obsidian vault that grows with you for years. Visits, Labs, Conditions,
+        Differentials, Symptom diary, Medications, Doctors. All wikilinked.
+      </p>
+    </div>
+
+    <div class="feature-card rounded-xl p-6">
+      <div class="text-4xl mb-3">🧠</div>
+      <h3 class="text-xl font-bold mb-2 text-white">Proactive intelligence</h3>
+      <p class="text-slate-400 text-sm leading-relaxed">
+        Every new input triggers a 60-day pattern scan. Weekly + monthly
+        scheduled reviews. Pings you only when something is genuinely worth saying.
+      </p>
+    </div>
+
+    <div class="feature-card rounded-xl p-6">
+      <div class="text-4xl mb-3">📋</div>
+      <h3 class="text-xl font-bold mb-2 text-white">Doctor-ready briefing</h3>
+      <p class="text-slate-400 text-sm leading-relaxed">
+        A living "Prossima visita" document, always current, ready to print.
+        Numbered priority questions, exams to request, medications to discuss.
+      </p>
+    </div>
+
+    <div class="feature-card rounded-xl p-6">
+      <div class="text-4xl mb-3">🔐</div>
+      <h3 class="text-xl font-bold mb-2 text-white">Privacy by design</h3>
+      <p class="text-slate-400 text-sm leading-relaxed">
+        Data lives on your machine. No cloud, no telemetry, no analytics.
+        The author of MyDoctor never sees your data.
+      </p>
+    </div>
+
+    <div class="feature-card rounded-xl p-6">
+      <div class="text-4xl mb-3">🖥️</div>
+      <h3 class="text-xl font-bold mb-2 text-white">Cross-platform</h3>
+      <p class="text-slate-400 text-sm leading-relaxed">
+        Linux, macOS, Windows native installer. Mobile is via Telegram client
+        (already an app on every phone).
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- How it works -->
+<section id="how-it-works" class="max-w-5xl mx-auto px-6 py-24">
+  <h2 class="text-4xl font-bold mb-4 text-center">How it works</h2>
+  <p class="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
+    Three feedback loops. Reactive when you ask. Proactive when something
+    matters. Silent when nothing changed.
+  </p>
+
+  <div class="space-y-8 max-w-3xl mx-auto">
+    <div class="flex gap-4 items-start">
+      <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-accent to-red-500 flex items-center justify-center font-bold text-white">1</div>
+      <div>
+        <h3 class="text-xl font-bold text-white mb-2">You message the bot</h3>
+        <p class="text-slate-400">Photo of a lab report. Voice memo about today's symptoms.
+        PDF from a specialist. Or just: "come sto?"</p>
+      </div>
+    </div>
+
+    <div class="flex gap-4 items-start">
+      <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-accent to-red-500 flex items-center justify-center font-bold text-white">2</div>
+      <div>
+        <h3 class="text-xl font-bold text-white mb-2">Bot calls Claude with the mydoctor skill</h3>
+        <p class="text-slate-400">The skill is a single Markdown file that auto-attaches in
+        the project's working directory. Defines the clinical methodology,
+        the output format, the vault conventions.</p>
+      </div>
+    </div>
+
+    <div class="flex gap-4 items-start">
+      <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-accent to-red-500 flex items-center justify-center font-bold text-white">3</div>
+      <div>
+        <h3 class="text-xl font-bold text-white mb-2">Claude reads the vault and writes back</h3>
+        <p class="text-slate-400">No embeddings, no vector DB. Markdown files read on demand
+        with native Read/Write/Edit tools. Wikilinks act as graph traversal.
+        For ~50 documents, 100% precision.</p>
+      </div>
+    </div>
+
+    <div class="flex gap-4 items-start">
+      <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-accent to-red-500 flex items-center justify-center font-bold text-white">4</div>
+      <div>
+        <h3 class="text-xl font-bold text-white mb-2">Scheduled reviews — silently</h3>
+        <p class="text-slate-400">Sunday 20:00 weekly + 1st of month 20:00 monthly. Pattern
+        detection over time. Telegram push only if something is worth knowing.
+        Otherwise silence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Install -->
+<section id="install" class="max-w-3xl mx-auto px-6 py-24">
+  <h2 class="text-4xl font-bold mb-4 text-center">Install in 3 commands</h2>
+  <p class="text-slate-400 text-center mb-12">
+    Cross-platform Python wizard. Linux, macOS, Windows.
+  </p>
+
+  <div class="code-block rounded-xl p-6 font-mono text-sm leading-relaxed">
+    <span class="text-slate-500"># 1. Clone</span><br/>
+    <span class="text-accent2">git clone</span> https://github.com/davixspain/mydoctor.git<br/>
+    <span class="text-accent2">cd</span> mydoctor<br/><br/>
+
+    <span class="text-slate-500"># 2. Run the wizard</span><br/>
+    <span class="text-accent2">python3</span> install.py<br/><br/>
+
+    <span class="text-slate-500"># 3. Open Telegram, send /start to your bot</span>
+  </div>
+
+  <p class="text-slate-400 text-sm mt-6 text-center">
+    The wizard handles everything: detects your OS, checks prerequisites,
+    walks you through @BotFather setup, copies the vault template, installs
+    the Claude skill, registers OS-native services. ~5 minutes.
+  </p>
+</section>
+
+<!-- Tech -->
+<section class="max-w-5xl mx-auto px-6 py-24">
+  <h2 class="text-4xl font-bold mb-4 text-center">Built on solid stuff</h2>
+  <p class="text-slate-400 text-center mb-12">
+    No exotic dependencies. Boring infrastructure that lasts.
+  </p>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div class="feature-card rounded-xl p-6 text-center">
+      <div class="text-4xl mb-2">🐍</div>
+      <div class="font-semibold text-white">Python 3.10+</div>
+      <div class="text-xs text-slate-500 mt-1">stdlib + 2 deps</div>
+    </div>
+    <div class="feature-card rounded-xl p-6 text-center">
+      <div class="text-4xl mb-2">📱</div>
+      <div class="font-semibold text-white">Telegram Bot API</div>
+      <div class="text-xs text-slate-500 mt-1">long polling, free</div>
+    </div>
+    <div class="feature-card rounded-xl p-6 text-center">
+      <div class="text-4xl mb-2">🧠</div>
+      <div class="font-semibold text-white">Claude Code CLI</div>
+      <div class="text-xs text-slate-500 mt-1">subprocess + skill</div>
+    </div>
+    <div class="feature-card rounded-xl p-6 text-center">
+      <div class="text-4xl mb-2">📓</div>
+      <div class="font-semibold text-white">Obsidian Vault</div>
+      <div class="text-xs text-slate-500 mt-1">markdown forever</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="max-w-4xl mx-auto px-6 py-24 text-center">
+  <h2 class="text-4xl md:text-5xl font-bold mb-6">
+    Get started in <span class="gradient-text">5 minutes</span>
+  </h2>
+  <p class="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+    Free for personal, research, and non-profit use. Source-available.
+    Full control of your data, always.
+  </p>
+  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a href="https://github.com/davixspain/mydoctor"
+       class="px-8 py-4 rounded-xl bg-gradient-to-r from-accent to-red-500 text-white font-semibold hover:shadow-lg hover:shadow-accent/30 transition">
+      ⭐ View on GitHub
+    </a>
+    <a href="https://github.com/davixspain/mydoctor/blob/main/docs/SETUP.md"
+       class="px-8 py-4 rounded-xl bg-slate-800 border border-slate-700 text-white font-semibold hover:border-accent transition">
+      📚 Read the docs
+    </a>
+  </div>
+</section>
+
+<!-- Disclaimer -->
+<section class="max-w-3xl mx-auto px-6 py-12">
+  <div class="rounded-xl border border-amber-900/50 bg-amber-950/20 p-6 text-sm text-amber-100/80 leading-relaxed">
+    <strong class="text-amber-200">⚠️ Medical disclaimer.</strong>
+    MyDoctor is <strong>NOT a medical device</strong>. It does <strong>NOT
+    make diagnoses</strong>, <strong>NOT prescribe treatments</strong>,
+    <strong>NOT replace a licensed physician</strong>. Any clinical decision
+    must be made by qualified healthcare professionals. In emergencies
+    (chest pain, severe bleeding, anaphylaxis, severe trauma) call
+    <strong class="text-amber-200">112 (EU)</strong> /
+    <strong class="text-amber-200">911 (US)</strong> immediately.
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-slate-800 mt-12">
+  <div class="max-w-6xl mx-auto px-6 py-12 text-center">
+    <p class="text-slate-400 text-sm mb-4">
+      Built by <a href="https://github.com/davixspain"
+                  class="text-accent2 hover:underline">Davide Bettinetti</a>.
+      Open-source under
+      <a href="https://github.com/davixspain/mydoctor/blob/main/LICENSE.md"
+         class="text-accent2 hover:underline">PolyForm Noncommercial 1.0.0</a>.
+    </p>
+    <p class="text-slate-500 text-xs">
+      Available for consulting on local-first AI tools, knowledge systems,
+      and LLM application engineering.
+      <a href="https://github.com/davixspain/mydoctor/blob/main/AUTHOR.md"
+         class="text-accent2 hover:underline">Get in touch →</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
