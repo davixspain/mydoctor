@@ -14,6 +14,20 @@
 
 ---
 
+> ## 💼 For businesses & clinics
+>
+> MyDoctor is a **public case study** of what I build for paying clients.
+> If you want a similar tool for your **veterinary clinic**, **allergology
+> practice**, **chronic disease program**, **physiotherapy chain**,
+> **dental practice**, or any **vertical with fragmented patient data** —
+> let's talk.
+>
+> 📧 **[davixspain@gmail.com](mailto:davixspain@gmail.com?subject=%5Bmydoctor%5D%20consulting%20inquiry)** — subject `[mydoctor] consulting inquiry`
+>
+> See [`AUTHOR.md`](AUTHOR.md) for services, pricing model, and how to engage.
+
+---
+
 ## What is this?
 
 **MyDoctor** is a personal medical journal + AI assistant that I built for myself
